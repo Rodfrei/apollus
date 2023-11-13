@@ -1,0 +1,16 @@
+<div class="paginador-container">
+  <div class="contador-container">
+    <div class="paginador-button" (click)="handleMenosClick()">
+      <fa-icon [icon]="faMinus"></fa-icon>
+    </div>
+    <div>
+      <p>
+        {{ totalPaginas == 0 ? 0 : paginaAtual + 1 }} de
+        {{ totalPaginas }} paginas
+      </p>
+    </div>
+    <div class="paginador-button" (click)="handleMaisClick()">
+      <fa-icon [icon]="faPlus"></fa-icon>
+    </div>
+  </div>
+</div>

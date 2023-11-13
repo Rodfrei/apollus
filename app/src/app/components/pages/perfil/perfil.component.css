@@ -1,0 +1,37 @@
+.perfil-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.perfil-card {
+  max-width: 600px;
+  min-width: 360px;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: var(--background-1);
+  margin-top: 110px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  width: 100%;
+}
+
+.perfil-info-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.perfil-info p {
+  margin: 5px 0;
+  color: var(--font-collor-dark);
+  font-size: 20px;
+}
+
+.perfil-info p span {
+  display: inline-block;
+  width: 200px;
+  font-weight: bold;
+  margin-right: 10px;
+  text-align: right;
+}

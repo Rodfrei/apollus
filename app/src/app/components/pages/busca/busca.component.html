@@ -1,0 +1,130 @@
+<app-loader *ngIf="isLoading"></app-loader>
+
+<div class="busca-container" *ngIf="!isLoading">
+  <form
+    class="form-container form-container-busca"
+    [formGroup]="buscarForm"
+    #formDir="ngForm"
+  >
+    <label class="input-container-busca">
+      <p class="input-label-busca">Pesquisa</p>
+      <input
+        class="input-field-busca"
+        type="text"
+        name="textoBuscado"
+        formControlName="textoBuscado"
+        placeholder="Digite 3 letras do nome ou e-mail"
+      />
+    </label>
+
+    <app-paginador
+      (menosClick)="voltarPagina($event)"
+      (maisClick)="avancarPagina($event)"
+      [paginaAtual]="buscarForm.get('paginaAtual')?.value"
+      [totalPaginas]="usuariosPageable.totalPages"
+      [primeiraPagina]="usuariosPageable.first"
+      [ultimaPagina]="usuariosPageable.last"
+    ></app-paginador>
+
+    <p *ngIf="usuarios.length === 0" class="menssagem-sem-resultados">
+      Sem resultados para listar.
+    </p>
+
+    <table class="table" *ngIf="usuarios.length !== 0">
+      <thead class="cabecalho">
+        <tr>
+          <th class="coluna-item">
+            <label class="option-container">
+              <input
+                formControlName="campoOrdenacao"
+                type="radio"
+                name="campoOrdenacao"
+                value="status"
+                class="hide"
+              />
+              <p>Status</p>
+            </label>
+          </th>
+          <th class="coluna-item">
+            <label class="option-container">
+              <input
+                formControlName="campoOrdenacao"
+                type="radio"
+                name="campoOrdenacao"
+                value="funcao"
+                class="hide"
+                checked
+              />
+              <p>Permissão</p>
+            </label>
+          </th>
+          <th class="coluna-item">
+            <label class="option-container">
+              <input
+                formControlName="campoOrdenacao"
+                type="radio"
+                name="campoOrdenacao"
+                value="nome"
+                class="hide"
+              />
+              <p>Nome</p>
+            </label>
+          </th>
+          <th class="coluna-item">
+            <label class="option-container">
+              <input
+                formControlName="campoOrdenacao"
+                type="radio"
+                name="campoOrdenacao"
+                value="email"
+                class="hide"
+                checked
+              />
+              <p>Email</p>
+            </label>
+          </th>
+          <th *ngIf="isAdmin" class="coluna-item"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let usuario of usuarios; let i = index"
+          [ngClass]="{
+            'linha-escura': i % 2 === 0,
+            'linha-clara': i % 2 !== 0
+          }"
+          class="linha"
+        >
+          <td class="coluna coluna-pequena" (click)="handleClick(usuario?.id)">
+            <div class="coluna-cont">
+              {{ usuario.status }}
+            </div>
+          </td>
+          <td class="coluna coluna-pequena" (click)="handleClick(usuario?.id)">
+            <div class="coluna-cont">
+              {{ usuario.permissao }}
+            </div>
+          </td>
+          <td class="coluna coluna-media" (click)="handleClick(usuario?.id)">
+            <div class="coluna-cont">
+              {{ usuario.nome }}
+            </div>
+          </td>
+          <td class="coluna coluna-grande" (click)="handleClick(usuario?.id)">
+            <div class="coluna-cont">
+              {{ usuario.email }}
+            </div>
+          </td>
+
+          <td
+            *ngIf="isAdmin"
+            class="coluna coluna-excluir"
+            (click)="handleExcluir(usuario?.id)"
+          >
+            <fa-icon class="trash-icon" [icon]="faTrash"></fa-icon>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</div>

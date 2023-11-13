@@ -1,0 +1,37 @@
+<app-loader *ngIf="isLoading"></app-loader>
+
+<div class="perfil-container">
+  <div class="perfil-card" *ngIf="!isLoading">
+    <p class="title">{{ usuario.nome }}</p>
+
+    <div class="perfil-info-container">
+      <div class="perfil-info">
+        <p><span>Email:</span>{{ usuario.email }}</p>
+        <p><span>Telefone:</span>{{ usuario.telefone }}</p>
+        <p><span>CPF:</span>{{ usuario.cpf }}</p>
+        <p>
+          <span>Data de nascimento:</span
+          >{{
+            usuario.dataNascimento ? usuario.dataNascimento : "Não informado"
+          }}
+        </p>
+        <p><span>Permissão:</span>{{ usuario.permissao }}</p>
+        <p><span>Criado por:</span>{{ usuario.criadoPor }}</p>
+        <p><span>Criado em:</span>{{ usuario.criadoEm }}</p>
+        <p>
+          <span>Editado por:</span
+          >{{ usuario.editadoPor ? usuario.editadoPor : "Não possui" }}
+        </p>
+        <p>
+          <span>Editado em:</span
+          >{{ usuario.editadoEm ? usuario.editadoEm : "Não possui" }}
+        </p>
+      </div>
+    </div>
+
+    <app-botao-principal
+      [text]="textoBotao"
+      (cliqueBotaoPrincipal)="onCliqueBotaoPrincipal()"
+    ></app-botao-principal>
+  </div>
+</div>

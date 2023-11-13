@@ -1,0 +1,13 @@
+.footer-container {
+  display: flex;
+  align-items: center;
+  background-color: var(--background-1);
+  flex-direction: column;
+  justify-content: center;
+  height: 90px;
+  gap: 5px;
+  color: var(--font-collor-dark);
+  width: 100%;
+  background: linear-gradient(to top, var(--background-1), var(--background-2));
+  border-top: 2px solid var(--font-collor-dark);
+}

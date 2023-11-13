@@ -1,0 +1,40 @@
+.message {
+  width: 400px;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border: 1px solid black;
+  position: fixed;
+  top: 110px;
+  right: 20px;
+  z-index: 99px;
+}
+
+.message-attention {
+  background-color: darkgoldenrod;
+}
+
+.message-error {
+  background-color: red;
+}
+
+.message-sucess {
+  background-color: green;
+}
+
+.message-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 25px;
+}
+
+.clear {
+  padding: 3px;
+  cursor: pointer;
+}
+
+.message-text {
+  font-size: 20px;
+}

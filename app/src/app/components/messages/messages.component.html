@@ -1,0 +1,9 @@
+<div
+  class="message {{ messagesService.getClasse() }}"
+  *ngIf="messagesService.getMessage()"
+>
+  <div class="message-header">
+    <p>{{ messagesService.getMessageType() }}</p>
+  </div>
+  <p class="message-text">{{ messagesService.getMessage() }}</p>
+</div>

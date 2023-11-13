@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  box-sizing: border-box;
+}
+
+:root {
+  --background-1: #353b50;
+  --background-2: #464c6a;
+  --emphasis: #9e3955;
+  --emphasis-hover: rgb(169, 64, 94);
+  --font-collor-dark: #a3a1af;
+  --font-collor-light: white;
+}
+
+body {
+  background-color: var(--background-2);
+}
+
+.title {
+  font-size: 35px;
+  font-weight: bold;
+  text-align: center;
+  color: var(--font-collor-light);
+  margin-bottom: 15px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 5px;
+  border-bottom: solid 3px var(--font-collor-dark);
+}
+
+.input-label {
+  font-size: 15px;
+  color: var(--font-collor-dark);
+}
+
+.input-field {
+  line-height: 19px;
+  color: white;
+  border: none;
+  outline: none;
+  background-color: var(--background-1);
+  font-size: 15px;
+  color: var(--font-collor-dark);
+  font-size: 25px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.menssagem-erro-container {
+  /*classe erro formulario*/
+  height: 20px;
+}
+
+.menssagem-erro {
+  /*classe erro formulario*/
+  color: var(--font-collor-light);
+  border-left: 3px solid var(--font-collor-light);
+  padding-left: 5px;
+  border-top: 3px;
+}
+
+.modal-open {
+  overflow: hidden;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

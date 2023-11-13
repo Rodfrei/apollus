@@ -1,0 +1,37 @@
+<header
+  class="header-container"
+  [ngClass]="{
+    'header-container-no-auth': !exibirMenu,
+    'header-container-auth': exibirMenu
+  }"
+>
+  <img class="logo" src="assets/logo.svg" alt="Apollus" />
+  <nav *ngIf="exibirMenu">
+    <ul class="menu-container">
+      <li
+        *ngIf="isAdmin"
+        [routerLink]="['/cadastro']"
+        routerLinkActive="router-link-active"
+        class="item-menu item-menu-cadastro"
+      >
+        Cadastro
+      </li>
+      <li
+        [routerLink]="['/perfil']"
+        routerLinkActive="router-link-active"
+        class="item-menu"
+      >
+        Perfil
+      </li>
+
+      <li
+        [routerLink]="['/usuarios']"
+        routerLinkActive="router-link-active"
+        class="item-menu"
+      >
+        Busca
+      </li>
+      <li (click)="logout()" class="item-menu">Sair</li>
+    </ul>
+  </nav>
+</header>

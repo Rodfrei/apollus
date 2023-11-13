@@ -1,0 +1,194 @@
+<app-loader *ngIf="isLoading"></app-loader>
+
+<div class="cadastro-container" *ngIf="!isLoading">
+  <div class="cadastro-card">
+    <form
+      class="form-container"
+      [formGroup]="usuarioForm"
+      #formDir="ngForm"
+      (ngSubmit)="submit()"
+    >
+      <div class="form-2-colunas">
+        <div class="form-coluna">
+          <div>
+            <label class="input-container">
+              <p class="input-label">Nome</p>
+              <input
+                class="input-field"
+                type="text"
+                name="nome"
+                formControlName="nome"
+              />
+            </label>
+
+            <div class="menssagem-erro-container">
+              <div
+                *ngIf="nome.invalid && formDir.submitted"
+                class="menssagem-erro"
+              >
+                <p *ngIf="nome.errors?.['required']">Informe um nome.</p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label class="input-container">
+              <p class="input-label">E-mail</p>
+              <input
+                class="input-field"
+                type="text"
+                name="email"
+                formControlName="email"
+              />
+            </label>
+
+            <div class="menssagem-erro-container">
+              <div
+                *ngIf="email.invalid && formDir.submitted"
+                class="menssagem-erro"
+              >
+                <p *ngIf="email.errors?.['required']">Informe um email.</p>
+                <p *ngIf="email.errors?.['email']">Email invalido.</p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label class="input-container">
+              <p class="input-label">Telefone</p>
+              <input
+                class="input-field"
+                type="number"
+                name="telefone"
+                formControlName="telefone"
+              />
+            </label>
+
+            <div class="menssagem-erro-container">
+              <div
+                *ngIf="telefone.invalid && formDir.submitted"
+                class="menssagem-erro"
+              >
+                <p *ngIf="telefone.errors?.['required']">
+                  Informe um telefone.
+                </p>
+                <p *ngIf="telefone.errors?.['minLength']">
+                  O telefone precisa de 11 digitos.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="input-options-container">
+            <p>Permissão</p>
+            <div class="options-container">
+              <label class="option-container">
+                <input
+                  formControlName="funcao"
+                  type="radio"
+                  name="funcao"
+                  value="ADMIN"
+                  class="hide"
+                />
+                <p>ADMIN</p>
+              </label>
+              <label class="option-container">
+                <input
+                  formControlName="funcao"
+                  type="radio"
+                  name="funcao"
+                  value="USER"
+                  class="hide"
+                />
+                <p>USER</p>
+              </label>
+            </div>
+          </div>
+          <div class="menssagem-erro-container">
+            <div
+              *ngIf="funcao.invalid && formDir.submitted"
+              class="menssagem-erro"
+            >
+              <p *ngIf="funcao.errors?.['required']">
+                Informe a permissão do usuario.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-coluna">
+          <div>
+            <label class="input-container">
+              <p class="input-label">CPF</p>
+              <input
+                class="input-field"
+                type="text"
+                name="cpf"
+                formControlName="cpf"
+              />
+            </label>
+
+            <div class="menssagem-erro-container">
+              <div
+                *ngIf="cpf.invalid && formDir.submitted"
+                class="menssagem-erro"
+              >
+                <p *ngIf="cpf.errors?.['required']">Informe um cpf.</p>
+                <p *ngIf="cpf.errors?.['maxLength']">
+                  O cpf precisa de 11 digitos.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label class="input-container">
+              <p class="input-label">Data de Nascimento</p>
+              <input
+                class="input-field"
+                type="date"
+                name="dataNascimento"
+                formControlName="dataNascimento"
+              />
+            </label>
+
+            <div class="menssagem-erro-container">
+              <div
+                *ngIf="dataNascimento.invalid && formDir.submitted"
+                class="menssagem-erro"
+              ></div>
+            </div>
+          </div>
+
+          <div>
+            <label class="input-container">
+              <p class="input-label">Senha</p>
+              <input
+                class="input-field"
+                type="text"
+                name="senha"
+                formControlName="senha"
+              />
+            </label>
+
+            <div class="menssagem-erro-container">
+              <div
+                *ngIf="senha.invalid && formDir.submitted"
+                class="menssagem-erro"
+              >
+                <p *ngIf="senha.errors?.['required']">Informe uma senha.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <app-botao-principal [text]="botaoSalvar"></app-botao-principal>
+    </form>
+    <app-botao-principal
+      (cliqueBotaoPrincipal)="cancelar()"
+      [text]="botaoCancelar"
+      >Cancelar</app-botao-principal
+    >
+  </div>
+</div>

@@ -1,0 +1,96 @@
+<div *ngIf="alterarSenhaService.isAlterandoSenha" class="modal-overlay">
+  <div class="modal-container">
+    <p class="title">Alterar senha</p>
+
+    <form
+      class="form-container"
+      [formGroup]="alterarSenhaForm"
+      #formDir="ngForm"
+      (ngSubmit)="submit()"
+    >
+      <div>
+        <label class="input-container">
+          <p class="input-label">Senha antiga</p>
+          <input
+            class="input-field"
+            type="password"
+            name="senhaAntiga"
+            formControlName="senhaAntiga"
+          />
+        </label>
+
+        <div class="menssagem-erro-container">
+          <div
+            *ngIf="senhaAntiga.invalid && formDir.submitted"
+            class="menssagem-erro"
+          >
+            <p *ngIf="senhaAntiga.errors?.['required']">
+              Informe sua senha atual.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <label class="input-container">
+          <p class="input-label">Senha nova</p>
+          <input
+            class="input-field"
+            type="password"
+            name="novaSenha"
+            formControlName="novaSenha"
+          />
+        </label>
+
+        <div class="menssagem-erro-container">
+          <div
+            *ngIf="novaSenha.invalid && formDir.submitted"
+            class="menssagem-erro"
+          >
+            <p *ngIf="novaSenha.errors?.['required']">
+              Informe sua nova senha.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <label class="input-container">
+          <p class="input-label">Confirmar senha</p>
+          <input
+            class="input-field"
+            type="password"
+            name="confirmar"
+            formControlName="confirmar"
+          />
+        </label>
+
+        <div class="menssagem-erro-container">
+          <div
+            *ngIf="confirmar.invalid && formDir.submitted"
+            class="menssagem-erro"
+          >
+            <p *ngIf="confirmar.errors?.['required']">
+              Confirmar sua nova senha.
+            </p>
+          </div>
+          <p
+            *ngIf="confirmacaoInvalida && !confirmar.errors?.['required']"
+            class="menssagem-erro"
+          >
+            Não foi possivel confirmar a nova senha.
+          </p>
+        </div>
+      </div>
+
+      <app-botao-principal [text]="botaoSalvar"></app-botao-principal>
+    </form>
+
+    <div class="cancelar-botao">
+      <app-botao-principal
+        (cliqueBotaoPrincipal)="cancelar()"
+        [text]="botaoCancelar"
+        >Cancelar</app-botao-principal
+      >
+    </div>
+  </div>
+</div>

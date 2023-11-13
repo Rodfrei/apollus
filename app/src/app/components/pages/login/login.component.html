@@ -1,0 +1,56 @@
+<div class="login-container">
+  <div class="card-login-container">
+    <p class="title title-login">Login</p>
+    <form
+      class="form-container"
+      (ngSubmit)="submit()"
+      [formGroup]="loginForm"
+      #formDir="ngForm"
+    >
+      <div>
+        <label class="input-container">
+          <p class="input-label">Email</p>
+          <input
+            class="input-field"
+            type="text"
+            name="email"
+            placeholder="exemplo@mail.com"
+            formControlName="email"
+          />
+        </label>
+
+        <div class="menssagem-erro-container">
+          <div
+            *ngIf="email.invalid && formDir.submitted"
+            class="menssagem-erro"
+          >
+            <p *ngIf="email.errors?.['required']">Email é obrigatório.</p>
+            <p *ngIf="email.errors?.['email']">Email invalido.</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <label class="input-container">
+          <p class="input-label">Senha</p>
+          <input
+            class="input-field"
+            type="password"
+            name="senha"
+            formControlName="senha"
+          />
+        </label>
+        <div class="menssagem-erro-container">
+          <div
+            *ngIf="email.invalid && formDir.submitted"
+            class="menssagem-erro"
+          >
+            <p *ngIf="senha.errors?.['required']">Senha é obrigatória.</p>
+          </div>
+        </div>
+      </div>
+
+      <app-botao-principal [text]="textoBotao"></app-botao-principal>
+    </form>
+  </div>
+</div>

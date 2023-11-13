@@ -1,0 +1,28 @@
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 50vh;
+  position: fixed;
+  z-index: 15;
+  align-items: center;
+  width: 100%;
+}
+
+.loader {
+  border: 4px solid var(--font-collor-light);
+  border-top: 4px solid var(--emphasis);
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

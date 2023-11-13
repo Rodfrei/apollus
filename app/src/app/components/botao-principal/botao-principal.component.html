@@ -1,0 +1,10 @@
+<button
+  [ngClass]="{
+    'botao-principal': !botaoSecundario,
+    'botao-secundario': botaoSecundario
+  }"
+  class="botao-principal"
+  (click)="handleClick()"
+>
+  {{ text }}
+</button>

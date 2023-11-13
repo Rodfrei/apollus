@@ -1,0 +1,131 @@
+.busca-container {
+  margin-top: 110px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-container-busca {
+  width: 100%;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.input-label-busca {
+  color: var(--font-collor-light);
+}
+
+.option-container {
+  cursor: pointer;
+}
+
+.menssagem-sem-resultados {
+  font-size: 20px;
+  margin-top: 50px;
+  color: var(--font-collor-light);
+}
+
+.input-field-busca {
+  line-height: 19px;
+  color: white;
+  border: none;
+  outline: none;
+  background-color: var(--background-2);
+  font-size: 20px;
+  color: var(--font-collor-light);
+  font-size: 25px;
+}
+
+.input-container-busca {
+  min-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 5px;
+  border-bottom: solid 3px var(--emphasis);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.coluna {
+  border: 1px solid var(--font-collor-light);
+  padding: 8px;
+  text-align: center;
+  color: var(--font-collor-light);
+  font-size: 20px;
+}
+
+.coluna-cont {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.coluna-pequena {
+  width: 50px;
+  max-width: 50px;
+}
+
+.coluna-media {
+  width: 200px;
+  max-width: 200px;
+}
+
+.coluna-grande {
+  width: 300px;
+  max-width: 300px;
+}
+
+.coluna-excluir {
+  width: 10px;
+}
+
+.coluna-item {
+  color: var(--font-collor-dark);
+  background-color: var(--background-1);
+  font-size: 20px;
+  border: 1px solid var(--font-collor-light);
+  padding: 8px;
+  text-align: center;
+}
+
+.linha-clara {
+  background-color: var(--background-1);
+}
+
+.linha-escura {
+  background-color: var(--background-2);
+}
+
+.linha {
+  cursor: pointer;
+}
+
+.linha:hover {
+  font-weight: bold;
+}
+
+.trash-icon {
+  color: var(--font-collor-dark);
+  cursor: pointer;
+}
+
+.trash-icon:hover {
+  color: var(--font-collor-light);
+}
+
+.hide {
+  display: none;
+}
+
+.hide:checked + p {
+  color: var(--font-collor-light);
+}
