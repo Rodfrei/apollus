@@ -1,6 +1,4 @@
-# README
-
-## Aplicação Local - Instruções de Execução
+# Instruções de Execução
 
 ### Banco de Dados
 
