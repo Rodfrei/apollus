@@ -40,3 +40,94 @@ Na raiz do projeto, execute os seguintes comandos no terminal:
 - Certifique-se de executar os scripts SQL para criar a tabela de usuários e inserir alguns usuarios.
 - Para o backend, é necessário o maven esteja instalado para realizar a compilação e geração do arquivo `.jar`.
 - Para o frontend, é necessário o Node.js e o npm instalados para instalar as dependências e iniciar a aplicação.
+
+
+# Solicitações de API
+
+- A autenticação é feita atravéz de token JWT, que é enviado em resposta para o usuario ao fazer login.
+- A rota login é a unica que é publica.
+- Ao fazer solicitações para API, selecionar o metodo de autenticação 'Bearer Token':
+  - No campo token informar o token; e
+  - No campo prefix informar 'Bearer'.
+- O arquivo 'Insomnia.json' com as requisições consta em './api/data/'
+
+## Login
+
+- **Método**: POST
+- **URL**: http://localhost:8080/login
+- **Descrição**: Autenticação do usuário.
+- **Corpo**:
+  ```json
+  {
+    "email": "adm@mail.com",
+    "senha": "123r"
+  }
+  ```
+
+## Listar
+
+- **Método**: GET
+- **URL**: http://localhost:8080/usuario?page={numero}&size={numero}&sort={texto},asc&busca={texto}
+- **Descrição**: Obter uma lista de usuários.
+
+## Visualizar
+
+- **Método**: GET
+- **URL**: http://localhost:8080/usuario/{id}
+- **Descrição**: Obter detalhes de um usuário específico.
+
+## Editar (ADMIN)
+
+- **Método**: PUT
+- **URL**: http://localhost:8080/usuario/{id}
+- **Descrição**: Atualizar detalhes do usuário.
+- **Corpo**:
+  ```json
+  {
+    "nome": "João Silva",
+    "email": "joao.silva@mail.com",
+    "cpf": "12345678909",
+    "telefone": "12345678909",
+    "dataNascimento": "2000-04-10",
+    "status": "ATIVO",
+    "funcao": "USER"
+  }
+  ```
+
+## Deletar (ADMIN)
+
+- **Método**: DELETE
+- **URL**: http://localhost:8080/usuario/{id}
+- **Descrição**: Excluir um usuário.
+
+## Alterar Senha
+
+- **Método**: PUT
+- **URL**: http://localhost:8080/usuario/alterar-senha
+- **Descrição**: Alterar a senha do usuário.
+- **Corpo**:
+  ```json
+  {
+    "senhaAntiga": "123r",
+    "novaSenha": "123r"
+  }
+  ```
+
+## Cadastrar (ADMIN)
+
+- **Método**: POST
+- **URL**: http://localhost:8080/usuario
+- **Descrição**: Registrar um novo usuário.
+- **Corpo**:
+  ```json
+  {
+    "nome": "João da Silva",
+    "email": "joao.silva@gmail.com",
+    "cpf": "12345678909",
+    "telefone": "12345678909",
+    "dataNascimento": "2023-04-10",
+    "senha": "123r",
+    "funcao": "USER",
+    "status": "ATIVO"
+  }
+  ```
