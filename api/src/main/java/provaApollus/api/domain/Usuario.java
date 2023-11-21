@@ -19,8 +19,6 @@ import java.util.List;
 import static jakarta.persistence.GenerationType.IDENTITY;
 
 @Entity
-@Getter
-@Setter
 @EqualsAndHashCode(of = "id") @ToString(of = "id")
 public class Usuario implements UserDetails {
 
