@@ -6,6 +6,7 @@ CREATE TABLE usuario (
 	email VARCHAR(255) NOT NULL,
 	telefone VARCHAR(11),
 	cpf VARCHAR(11) NOT NULL,
+	status VARCHAR(7),
 	data_nascimento DATE,
 	senha VARCHAR(128) NOT NULL,
 	criado_por VARCHAR(255) NOT NULL,
