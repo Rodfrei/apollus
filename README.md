@@ -41,8 +41,9 @@ Na raiz do projeto, execute os seguintes comandos no terminal:
 - Para o backend, é necessário o maven esteja instalado para realizar a compilação e geração do arquivo `.jar`.
 - Para o frontend, é necessário o Node.js e o npm instalados para instalar as dependências e iniciar a aplicação.
 
+---
 
-# Solicitações de API
+# Solicitações para a API
 
 - A autenticação é feita atravéz de token JWT, que é enviado em resposta para o usuario ao fazer login.
 - A rota login é a unica que é publica.
