@@ -8,7 +8,6 @@ CREATE TABLE usuario (
 	cpf VARCHAR(11) NOT NULL,
 	data_nascimento DATE,
 	senha VARCHAR(128) NOT NULL,
-	ativo VARCHAR(7) NOT NULL,
 	criado_por VARCHAR(255) NOT NULL,
 	criado_em TIMESTAMP NOT NULL,
 	editado_por VARCHAR(255),
